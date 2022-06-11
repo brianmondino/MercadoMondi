@@ -20,14 +20,14 @@ class Detalle_Elec(DetailView):
 
 class Agregar(LoginRequiredMixin, CreateView):
     modelo = Electronics
-    template_name = 'Electronica_tem/agregar_elem.html'
+    template_name = 'Electronica_tem/agregar_elec.html'
     campo = '__all__'
 
     def get_success_url(self):
         return reverse('Detalle_Elec', kwargs={'pk':self.object.pk})
 
 class Borrar(DeleteView):
-    modelo = Electronics
+    model = Electronics
     template_name = 'Electronica_tem/borrar_elec.html'
 
     def get_success_url(self):

@@ -14,8 +14,8 @@ from django.contrib.auth.decorators import login_required
 from MondiStore.forms import form_de_registracion
 
 def index(request):
-    print(request.usuario_A)
-    print(request.usuario_A.is_authenticated)
+    print(request.user)
+    print(request.user.is_authenticated)
     return render(request, 'index.html')
 
 def registrarse(request):
@@ -25,7 +25,7 @@ def registrarse(request):
         if form.is_valid():
             form.save() #<------------propio del form
             usuario = form.cleaned_data['username']
-            contrase = form.cleaned_data['password']
+            contrase = form.cleaned_data['password1']
             user = authenticate(username = usuario, password = contrase) #<----se llama asi para probar con otra variable
             login(request, user)
             context = {'message':f'Usuario creado correctamente, bienvenido {usuario}'}
