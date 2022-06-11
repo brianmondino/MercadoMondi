@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Productos
+{% endblock %}
+
+{% block contenido %}
+<h1  style="margin-left:30rem"  >Aquí se ven los equipos electronicos, ¿No es Genial? </h1>
+
+{{message}}
+
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for electro in object_list %}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{electro.nombre}}</h5>
+            <p class="card-text">{{electro.descripcion}}</p>
+            <p class="card-text">{{electro.precio}}</p>
+            <a href="/electronica/detalle-elec/{{producto.id}}/" class="btn btn-primary">Ver mas!</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
