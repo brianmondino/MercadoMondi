@@ -47,10 +47,9 @@ def loguearse(request):
         form = AuthenticationForm(request, data = request.POST)
 
         if form.is_valid():
-            user = authenticate(username='usuario', password='contrase')
-            usuario = form.cleaned_data['usuario']
-            contrase = form.cleaned_data['contrase']
-            #user = authenticate(username=usuario, password=contrase)
+            usuario = form.cleaned_data['username']
+            contrase = form.cleaned_data['password']
+            user = authenticate(username=usuario, password=contrase)
             if user is not None:
                 login(request, user)
                 context = {'message':f'Bienvenido {usuario}!! :D'}
