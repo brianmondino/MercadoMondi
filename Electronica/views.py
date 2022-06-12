@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
@@ -10,18 +11,18 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 
 
 class Lista_Elec(ListView):
-    modelo = Electronics
+    model = Electronics
     template_name= 'Electronica_tem/elec_elec.html'
     queryset = Electronics.objects.filter(hay_stock = True)
 
 class Detalle_Elec(DetailView):
-    modelo = Electronics
+    model = Electronics
     template_name= 'Electronica_tem/detalle_elec.html'
 
 class Agregar(LoginRequiredMixin, CreateView):
-    modelo = Electronics
+    model = Electronics
     template_name = 'Electronica_tem/agregar_elec.html'
-    campo = '__all__'
+    fields = '__all__'
 
     def get_success_url(self):
         return reverse('Detalle_Elec', kwargs={'pk':self.object.pk})
@@ -36,7 +37,7 @@ class Borrar(DeleteView):
 class Actualizar(UpdateView):
     model = Electronics
     template_name = 'Electronica_tem/actualizar_elec.html'
-    campo = '__all__'
+    fields = '__all__'
 
 
     def get_success_url(self):

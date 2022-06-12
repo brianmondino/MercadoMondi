@@ -10,14 +10,14 @@
 {{message}}
 
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for electro in lista_de_objetos %}
+    {% for electro in object_list %} <!--object_list no se puede cambiar -->
 
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{electro.nombre}}</h5>
             <p class="card-text">{{electro.descripcion}}</p>
             <p class="card-text">{{electro.precio}}</p>
-            <a href="/electronica/detalle-elec/{{producto.id}}/" class="btn btn-primary">Ver mas!</a>
+            <a href="/electronica/detalle-elec/{{electro.id}}/" class="btn btn-primary">Ver mas!</a>
         </div>
     </div>
 
