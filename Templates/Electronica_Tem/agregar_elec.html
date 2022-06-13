@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-Agregue aqui un equipo
+Agregando Equipos
 {% endblock %}
 
 {% block contenido %}
@@ -9,11 +9,11 @@ Agregue aqui un equipo
     {% if form %}
         <h2 style="margin-left:30rem">Complete los campos</h2>
         <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
-            {% csrf_token %}
-            <table>
+            {% csrf_token %} <!--ES EL TOKEN Y VA SIEMPRE QUE SEA POR POST-->
+            <table>     <!--Tiene que estar este renglon y los 2 de abajo  para que sea listita-->
                 {{form.as_table}}
             </table>
-            <input type="submit" , value="Enviar">
+            <input type="submit" , value="Enviar"><!--INPUT, ES EL BOTON DE ENVIAR-->
         </form>
     
 <!-- 

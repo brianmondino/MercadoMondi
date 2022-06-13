@@ -7,8 +7,8 @@ class Electronics(models.Model):
     SKU = models.CharField(max_length=30, unique=True)
     hay_stock = models.BooleanField(default=True)
 
-    #class Meta:
-    #   verbose_name = 'producto'
-    #   verbose_name_plural = 'productos'
+    class Meta:
+       verbose_name = 'Electronica'     #Estoy diciendo que cuando hable de 1 unidad lo llame asi
+       verbose_name_plural = 'Electronicas' #Estoy diciendo que cuando hable de X unidades lo llame asi
 
 

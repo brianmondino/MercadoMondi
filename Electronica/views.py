@@ -25,7 +25,7 @@ class Agregar(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def get_success_url(self):
-        return reverse('Detalle_Elec', kwargs={'pk':self.object.pk})
+        return reverse('Detalle_Elec', kwargs={'pk':self.object.pk})  #TENGO UN PROBLEMA ACA!
 
 class Borrar(DeleteView):
     model = Electronics
@@ -43,12 +43,12 @@ class Actualizar(UpdateView):
     def get_success_url(self):
         return reverse('Detalle_Elec', kwargs = {'pk':self.object.pk})
 
-def buscar(request):
-    producto = Electronics.objects.filter(nombre__icontains=request.GET['buscar'])
+def Buscar(request):
+    productos = Electronics.objects.filter(nombre__icontains=request.GET['search'])
     
-    if producto.exists():
-        context = {'producto':producto}
+    if productos.exists():
+        context = {'productos':productos}
     else:
-        context = {'errors':'No se encontro el producto'}
+        context  = {'errors':'No se encontro el producto'}
 
     return render(request, 'Electronica_tem/buscar_elec.html', context = context)
